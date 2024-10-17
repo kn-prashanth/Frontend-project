@@ -1,0 +1,238 @@
+<head>
+  <title>sr-bets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Fontawesome Link for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- <h1>Welcome to Meteor!</h1> -->
+   <div class="top-nav-bar">
+        {{> TopNavBar}}
+   </div>
+   <div class="main-content container-fluid m-0 p-0">
+    <div class="row m-0 p-0">
+        <div class="left-nav-bar col-sm-2 m-0 ">
+            {{> LeftNavBar}}
+        </div>
+        <div class="dashboard col-md-10  m-0">
+            {{> dashboard}}
+        </div>
+    </div>
+   </div>
+  <!-- {{> hello}} -->
+  <!-- {{> info}} -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+<template name="TopNavBar">
+    <nav class="fixed-top-nav-bar fixed-top navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <span class="logo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                <path d="M50 10 L61.8 38.2 L92.4 38.2 L67.2 57.8 L76.6 85.4 L50 67.2 L23.4 85.4 L32.8 57.8 L7.6 38.2 L38.2 38.2 Z" 
+                      fill="white" stroke="none" stroke-width="2" stroke-linejoin="round" />
+              </svg>                               
+            </span>
+            <span class="text"><b>SR</b> Bets</span>
+        </a>      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <form class="form-inline my-2 my-lg-0">
+                <div class="search-wrapper">
+                    <svg width="60" height="60" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#9298b4">
+                        <circle cx="10" cy="10" r="7" stroke="#9298b4" stroke-width="2" fill="none"/>
+                        <line x1="15" y1="15" x2="21" y2="21" stroke="#9298b4" stroke-width="2" stroke-linecap="round"/>
+                    </svg>  
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search game or sport">                    
+                </div>
+              </form>
+            <div class="right-controls float-right display-flex">
+                <li class="nav-item active">
+                    <div class="wallet-wrapper nav-link">
+                      <div class="outer-wrapper">
+                        <div class="amount-dropdown">
+                          <span class="text">2.56</span>
+                          <span class="svg">
+                            <svg id="Layer" xmlns="http://www.w3.org/2000/svg" width="11.301" height="6.178" viewBox="0 0 11.301 6.178">
+                              <g id="Vrstva_127" data-name="Vrstva 127" transform="translate(0 0)">
+                                  <path id="Path_125" data-name="Path 125" d="M11.339,14.735a1.189,1.189,0,0,0,1.591,0l4.323-4.116a.983.983,0,1,0-1.4-1.385l-3.605,3.4a.246.246,0,0,1-.324,0L7.871,9.106a.985.985,0,1,0-1.3,1.483Z" transform="translate(-6.237 -8.862)" fill="#9b9b9b"></path>
+                              </g>
+                            </svg>
+                          </span>
+                        </div>
+                        <div class="btn wallet-button">
+                          Wallet
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+                  </li>
+                  <li class="nav-item">
+                    <div class="btn-profile">
+                      <div class="btn avathar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+                          <circle cx="50" cy="50" r="40" stroke="#fff" stroke-width="5" fill="none" />
+                          <circle cx="50" cy="35" r="10" fill="#fff" />
+                          <path d="M 35 60 C 35 50, 65 50, 65 60 C 65 70, 35 70, 35 60 Z" fill="#fff" />
+                        </svg>                        
+                      </div>
+                    </div>
+                  </li>
+            </div>
+          </ul>
+        </div>
+      </nav>
+</template>
+
+<template name="LeftNavBar">
+    <div class="left-nav-wrapper">
+        <div class="top-btns-wrapper">
+            <div class="btn btn-casino">
+                <span class="svg-holder"></span>
+                <span class="text">Casino</span>
+                <span class="alph">C</span>
+            </div>
+            <div class="btn btn-sports">
+                <span class="svg-holder"></span>
+                <span class="text">Sports</span>
+                <span class="alph">S</span>
+            </div>
+        </div>
+        <div class="left-nav-section user-controls">
+            {{#each userContols}}
+                <div class="left-nav-item">
+                    <span class="svg-holder">{{{icon}}}</span>
+                    <span class="text">{{label}}</span>
+                </div>
+            {{/each}}
+        </div>
+        <div class="left-nav-section sports-wrapper">
+            <div class="sec-name">ALL SPORTS</div>
+            {{#each sports}}
+                <div class="left-nav-item">
+                    <span class="svg-holder">{{{icon}}}</span>
+                    <span class="text">{{label}}</span>
+                </div>
+            {{/each}}
+        </div>
+        <div class="left-nav-section sports-wrapper">
+            <div class="sec-name">ALL CASINO</div>
+            {{#each casino}}
+                <div class="left-nav-item">
+                    <span class="svg-holder">{{{icon}}}</span>
+                    <span class="text">{{label}}</span>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="dashboard">
+    <div class="dashboard-wrapper">
+        <!-- <div class="promotional-section hr-scroll container-fluid py-2">
+            <div class="d-flex flex-row flex-nowrap">
+                {{#each promotinalCards}}
+                    <div class="card card-body">
+                        <img src="{{image}}" alt="img">
+                        <div class="card-footer {{footerColor}}">
+                            <div class="icon">
+                                {{{icon}}}
+                            </div>
+                            <div class="card-label">{{label}}</div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div> -->
+      
+
+        <div class="promotional-section container-fluid py-2">
+          <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul class="carousel">
+              {{#each promotinalCards}}
+              <li class="card">
+                <div class="card-body">
+                  <img src="{{image}}" alt="img">
+                  <div class="card-footer {{footerColor}}">
+                      <div class="icon">
+                          {{{icon}}}
+                      </div>
+                      <div class="card-label">{{label}}</div>
+                  </div>
+                </div>
+              </li>
+              {{/each}}
+            </ul>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+          </div>
+        </div>
+
+
+
+
+        <div class="section-heading">
+          <div class="section-name">Recently played</div>
+          <div class="scroll-container">
+            <button class="scroll-left js-scroll-left" data-value="recently_played"><i id="left" class="fa-solid fa-angle-left"></i></button>
+            <button class="scroll-right js-scroll-right" data-value="recently_played"><i id="right" class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+        <div class="recently-played hr-scroll container-fluid py-2" id="recently_played">
+          <div class="d-flex flex-row flex-nowrap">
+            {{#each recentlyPlayed}}
+                <div class="card card-body">
+                    <div class="icon">
+                      {{{icon}}}
+                  </div>
+                  <div class="card-label">{{label}}</div>
+                </div>
+            {{/each}}
+        </div>
+        </div>
+        <div class="section-heading">
+          <div class="section-name">Top 10 casino games</div>
+          <div class="scroll-container">
+            <button class="scroll-left js-scroll-left" data-value="top_casino"><i id="left" class="fa-solid fa-angle-left"></i></button>
+            <button class="scroll-right js-scroll-right" data-value="top_casino"><i id="left" class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+        <div class="top-casino hr-scroll container-fluid py-3" id="top_casino">
+          <div class="d-flex flex-row flex-nowrap">
+            {{#each topCasino}}
+                <div class="card card-body">
+                    <img src="{{img}}" alt="img">
+                    <!-- <div class="card-footer {{footerColor}}">
+                        <div class="icon">
+                            {{{icon}}}
+                        </div>
+                        <div class="card-label">{{label}}</div>
+                    </div> -->
+                </div>
+            {{/each}}
+        </div>
+        </div>
+        <div class="section-heading">
+          <div class="section-name">Top 10 sport games</div>
+          <div class="scroll-container">
+            <button class="scroll-left js-scroll-left" data-value="top_sports"><i id="left" class="fa-solid fa-angle-left"></i></button>
+            <button class="scroll-right js-scroll-right" data-value="top_sports"><i id="left" class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+        <div class="top-sports hr-scroll container-fluid py-3" id="top_sports">
+          <div class="d-flex flex-row flex-nowrap">
+            {{#each topSports}}
+                <div class="card card-body">
+                    <img src="{{img}}" alt="img">
+                    <div class="card-footer {{footerColor}}">
+                        <div class="pulse"></div>
+                        <div class="live-count">{{liveCount}} <span class="text">playing</span></div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        </div>
+    </div>
+</template>

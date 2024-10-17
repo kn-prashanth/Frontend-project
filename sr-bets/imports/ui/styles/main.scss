@@ -1,0 +1,137 @@
+@import '{}/node_modules/bootstrap/scss/bootstrap.scss';
+.fixed-top-nav-bar {
+    background: #141525 !important;
+    padding: 2px 15px;
+    border-bottom: 2px solid #6266a1;
+    .navbar-brand {
+        color: #fff;
+        margin-right: 12%;
+        .logo {
+            background-color: #673cff;
+            display: inline-block;
+            padding: 5px;
+            border-radius: 12px;
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .text {
+            font-size: 22px;
+            margin-left: 5px;
+        }
+    }
+    .navbar-toggler {
+
+    }
+    .navbar-collapse {
+        .navbar-nav {
+            justify-content: space-between;
+            width: 100%;
+            .form-inline {
+                display: flex;
+                align-items: center;
+                .search-wrapper {
+                    svg {
+                        position: absolute;
+                        height: 23px;
+                        width: 23px;
+                        margin-top: 9px;
+                        margin-left: 22px;
+                    }
+                }
+                .form-control {
+                    background-color: #0b0d1c;
+                    color: #9298b4;
+                    border: none;
+                    width: 500px;
+                    padding: 10px 10px 10px 52px;                
+                    &::placeholder {
+                        color: #9298b4;
+                    }
+                }
+            }
+            .right-controls {
+                display: flex;
+                .nav-item {
+                    .nav-link {
+                        color: #fff;
+                    }
+                    .wallet-wrapper{
+                        
+                        .outer-wrapper {
+                            background-color: #0b0d1c;
+                            padding: 5px;
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            .amount-dropdown {
+                                margin: 0 15px;
+                                .text {
+                                    font-weight: 500;
+                                    margin-right: 18px;
+                                }
+                                .svg {
+                                    height: 20px;
+                                    width: 20px;
+                                }
+                            }
+                            .wallet-button {
+                                background-color: #673cff;
+                                color: #fff;
+                                letter-spacing: 0.3px;
+                                border-radius: 8px;
+                                padding: 10px 23px;
+                                border: none;
+                                font-size: 18px;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                    .btn-profile{
+                        height: 100%;
+                        .avathar {
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            svg {
+                                height: 40px;
+                                width: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
+.main-content {
+    margin-top: 77px !important;
+    .left-nav-bar {
+        width: 250px;
+        background: #141525 !important; 
+        padding: 20px;
+        .left-nav-wrapper{
+            margin-top: 20px;
+            .top-btns-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .btn-casino, .btn-sports {
+                    color: #fff;
+                    font-weight: 500;
+                    border: none;
+                    border-radius: 8px;
+                    width: 165px;
+                }
+                .btn-casino {
+                    background-color: #f02a83;
+                }
+                .btn-sports {
+                    background-color: #5b2aed;
+                }
+            }
+        }
+    }
+}
