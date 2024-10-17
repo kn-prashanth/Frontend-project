@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "output/programs/web.browser/*.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "output/programs/server/*.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "src": "/", "dest": "/output/programs/web.browser/index.html" },
+      { "src": "/(.*)", "dest": "/output/programs/server/main.js" }
+    ]
+  }
+  
