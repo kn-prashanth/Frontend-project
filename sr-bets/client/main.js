@@ -100,6 +100,35 @@ $(document).ready(function () {
   wrapper.addEventListener("mouseleave", autoPlay);
 });
 
+Template.BottomNavForMob.helpers({
+  isActive: function (label) {
+    return label == "Home";
+  },
+  userContols: function () {
+    return [
+      {
+        icon: `<svg fill="currentColor" viewBox="0 0 96 96" class="svg-icon " style=""> <title></title> <path d="M48 0C21.48 0 0 21.48 0 48s21.48 48 48 48 48-21.48 48-48S74.52 0 48 0ZM18.52 74.96C12 67.84 8 58.4 8 48c0-1.52.12-3 .28-4.48l6.52 2.12c-.04.8-.12 1.56-.12 2.36 0 8.2 2.96 15.68 7.84 21.48l-4 5.48Zm1.2-44.56-6.48-2.12C18.84 18.4 28.52 11.12 40 8.8v6.88A33.453 33.453 0 0 0 19.72 30.4ZM48 88c-5.92 0-11.48-1.32-16.56-3.64l4-5.52c3.88 1.56 8.12 2.48 12.56 2.48 4.44 0 8.68-.88 12.56-2.48l4 5.52A39.487 39.487 0 0 1 48 88Zm-8.12-23.36 6.44-6.44c.92-.92 2.44-.92 3.4 0l6.44 6.44c.76.76.24 2.04-.84 2.04H40.76c-1.08 0-1.6-1.28-.84-2.04h-.04Zm28.6-15.44-6.8 6.8c-.92.92-2.44.92-3.4 0l-8.6-8.6c-.92-.92-2.44-.92-3.4 0l-8.6 8.6c-.92.92-2.44.92-3.4 0l-6.8-6.8c-.92-.92-.92-2.44 0-3.4L46.28 27c.92-.92 2.44-.92 3.4 0l18.8 18.8c.92.92.92 2.44 0 3.4ZM56 15.68V8.8c11.48 2.32 21.16 9.6 26.76 19.48l-6.48 2.12C71.76 23.16 64.52 17.76 56 15.68Zm21.48 59.28-4-5.48c4.88-5.8 7.84-13.28 7.84-21.48 0-.8-.08-1.6-.12-2.36l6.52-2.12C87.88 45 88 46.48 88 48c0 10.4-4 19.84-10.52 26.96Z"></path></svg>`,
+        label: "Home",
+      },
+      {
+        icon: `<svg fill="currentColor" viewBox="0 0 64 64" class="svg-icon " style=""> <title></title> <path d="M16 2.666v48c0 1.6-1.066 2.666-2.666 2.666-1.6 0-2.666-1.066-2.666-2.666V8h-8v45.334c0 4.534 3.466 8 8 8h50.666V2.668H16v-.002ZM34.666 48H24V26.666h10.666V48Zm18.668 0H40v-8h13.334v8Zm0-13.334H40v-8h13.334v8Zm0-13.332H24v-8h29.334v8Z"></path></svg>`,
+        label: "Wallet",
+      },
+      {
+        icon: `<svg fill="currentColor" viewBox="0 0 64 64" class="svg-icon " style=""> <title></title> <path d="M.001 3.549v7.12h7.12v49.786h6.214c.778-3.122 3.556-5.398 6.866-5.398a7.07 7.07 0 0 1 6.856 5.348l.01.048h9.974c.778-3.122 3.556-5.398 6.866-5.398a7.07 7.07 0 0 1 6.856 5.348l.01.048h6.16V10.665h7.066v-7.12L.001 3.549Zm35.546 37.334h-17.76v-5.334h17.76v5.334Zm10.668-14.214H17.789v-5.334h28.426v5.334Z"></path></svg>`,
+        label: "Bets",
+      },
+      {
+        icon: `<svg fill="currentColor" viewBox="0 0 64 64" class="svg-icon " style=""> <title></title> <path d="M32 0 5.654 11.306C5.654 52.692 32 64 32 64s26.346-11.306 26.346-52.694L32 0Zm3.546 33.014v13.2h-7.12v-13.2c-3.174-1.41-5.346-4.532-5.346-8.164a8.907 8.907 0 1 1 12.522 8.142l-.056.022Z"></path></svg>`,
+        label: "Gaming",
+      },
+      {
+        icon: `<svg fill="currentColor" viewBox="0 0 64 64" class="svg-icon " style=""> <title></title> <path d="M32-.001h-.084C17.056-.001 5.01 12.045 5.01 26.905c0 .178.002.356.006.534v-.026 22.374h17.386V30.613h-8.186v-3.2a17.59 17.59 0 0 1-.01-.588c0-9.734 7.892-17.626 17.626-17.626h.178H32h.17c9.734 0 17.626 7.892 17.626 17.626 0 .206-.004.412-.01.618v-.03 3.2H41.6v19.174h7.546c-1.734 4.134-7.28 5.014-17.146 5.014v9.2c8.774 0 26.986 0 26.986-17.386v-19.2c.004-.15.004-.328.004-.506C58.99 12.049 46.944.003 32.084.003h-.09.004L32-.001Z"></path></svg>`,
+        label: "Support",
+      }
+    ];
+  },
+});
 Template.LeftNavBar.helpers({
   userContols: function () {
     return [
@@ -449,20 +478,37 @@ Template.dashboard.events({
     container.scrollBy({ left: 156, behavior: "smooth" });
   },
 });
-// Template.hello.onCreated(function helloOnCreated() {
-//   // counter starts at 0
-//   this.counter = new ReactiveVar(0);
-// });
 
-// Template.hello.helpers({
-//   counter() {
-//     return Template.instance().counter.get();
-//   },
-// });
 
-// Template.hello.events({
-//   'click button'(event, instance) {
-//     // increment the counter when button is clicked
-//     instance.counter.set(instance.counter.get() + 1);
-//   },
-// });
+
+Template.TopNavBar.onCreated(function helloOnCreated() {
+  let walletCount = Number(localStorage.getItem("walletCount")) || 100;
+  this.counter = new ReactiveVar(walletCount);
+  // this.TopNavBar.set("counter", 100);
+});
+Template.TopNavBar.onRendered(function helloOnCreated() {
+  let instance = this;
+  instance.autorun(()=>{
+    let counter = instance.counter.get();
+    localStorage.setItem("walletCount", counter);
+  })
+  setInterval(()=> {
+    let counter = instance.counter.get();
+    instance.counter.set(counter+50);
+  }, 1000)
+});
+
+Template.TopNavBar.helpers({
+  counter() {
+    // return Template.instance().counter.get();
+    return 300;
+  },
+});
+
+Template.TopNavBar.events({
+  'click button'(event, instance) {
+    // increment the counter when button is clicked
+    instance.counter.set(instance.counter.get() + 1);
+  },
+});
+// 9711941569

@@ -20,6 +20,7 @@
         </div>
     </div>
    </div>
+   {{>BottomNavForMob}}
   <!-- {{> hello}} -->
   <!-- {{> info}} -->
 
@@ -38,7 +39,7 @@
             <span class="text"><b>SR</b> Bets</span>
         </a>      
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <ul class="navbar-nav mr-auto mt-lg-0">
             <form class="form-inline my-2 my-lg-0">
                 <div class="search-wrapper">
                     <svg width="60" height="60" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#9298b4">
@@ -53,7 +54,7 @@
                     <div class="wallet-wrapper nav-link">
                       <div class="outer-wrapper">
                         <div class="amount-dropdown">
-                          <span class="text">2.56</span>
+                          <span class="text">{{counter}}</span>
                           <span class="svg">
                             <svg id="Layer" xmlns="http://www.w3.org/2000/svg" width="11.301" height="6.178" viewBox="0 0 11.301 6.178">
                               <g id="Vrstva_127" data-name="Vrstva 127" transform="translate(0 0)">
@@ -235,4 +236,18 @@
         </div>
         </div>
     </div>
+</template>
+
+<template name="BottomNavForMob">
+  <div class="fixed-bottom-nav">
+    <div class="bottom-nav-wrapper">
+        {{#each userContols}}
+            <div class="bottom-nav-item {{#if isActive label}}active{{/if}}">
+                <span class="svg-holder">{{{icon}}}</span>
+                <span class="text">{{label}}</span>
+                <span class="active-bar"></span>
+            </div>
+        {{/each}}
+    </div>
+  </div>
 </template>
